@@ -1,0 +1,105 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const slides = [
+  {
+    image: "/images/background1.jpeg",
+    title: "Energy Efficiency Solutions",
+    description:
+      "Enhance operational efficiency and reduce energy costs with our tailored solutions.",
+  },
+  {
+    image: "/images/background2.jpg",
+    title: "Sustainable Development",
+    description:
+      "We provide innovative solutions for a greener and more sustainable future.",
+  },
+  {
+    image: "/images/background3.jpeg",
+    title: "Solar Energy Consultation",
+    description:
+      "Get expert guidance on optimizing your solar energy projects and investments.",
+  },
+];
+
+export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [direction, setDirection] = useState<number>(1); // Controls slide direction
+
+  const prevSlide = (): void => {
+    setDirection(-1);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = (): void => {
+    setDirection(1);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className="relative flex flex-col items-center justify-center h-screen text-center px-6 overflow-hidden">
+      {/* Image Slider with Animation */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentIndex}
+            className="absolute w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${slides[currentIndex].image})`,
+              filter: "blur(6px)",
+            }}
+            initial={{ x: direction === 1 ? "100%" : "-100%", opacity: 0 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: direction === 1 ? "-100%" : "100%", opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
+      </div>
+
+      {/* Text Content Animation */}
+      <div className="relative z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex} // Ensures re-render when index changes
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-white"
+          >
+            <h1 className="text-5xl font-bold drop-shadow-2xl">
+              {slides[currentIndex].title}
+            </h1>
+            <p className="mt-4 text-lg drop-shadow-2xl">
+              {slides[currentIndex].description}
+            </p>
+
+            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold">
+              GET STARTED
+            </button>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Navigation Arrows */}
+      <div
+        className="absolute top-1/2 left-5 text-3xl cursor-pointer text-white z-10"
+        onClick={prevSlide}
+      >
+        ❮
+      </div>
+      <div
+        className="absolute top-1/2 right-5 text-3xl cursor-pointer text-white z-10"
+        onClick={nextSlide}
+      >
+        ❯
+      </div>
+    </div>
+  );
+}
