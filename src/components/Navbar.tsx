@@ -25,7 +25,7 @@ export default function Navbar() {
             Our Projects
           </span>
         </Link> */}
-        <Link href="#">
+        <Link href="/blog">
           <span className="hover:text-green-600 cursor-pointer">Blogs</span>
         </Link>
         <Link href="/contact">
