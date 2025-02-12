@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
               <Link href="#">Our Tech</Link>
             </li>
             <li>
-              <Link href="#">Terms of use</Link>
+              <Link href="/terms">Terms of use</Link>
             </li>
             <li>
               <Link href="#">Disclaimer</Link>
@@ -73,7 +73,10 @@ const Footer: React.FC = () => {
 
       {/* Social Icons */}
       <div className="mt-4 flex justify-center gap-4">
-        <Link href="#" className="text-xl">
+        <Link
+          href="https://www.instagram.com/beautifulplanet.ai/?hl=en"
+          className="text-xl"
+        >
           <FaInstagram />
         </Link>
         <Link

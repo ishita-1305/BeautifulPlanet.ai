@@ -40,8 +40,11 @@ export default function AboutUs() {
       </header>
 
       {/* About Us Section */}
-      <section id="about" className="py-20 px-20 bg-[#0e2342] text-white">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-x-12">
+      <section
+        id="about"
+        className="py-20 px-4 md:px-16 bg-[#0e2342] text-white"
+      >
+        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between space-x-12">
           {/* Text Content */}
           <div className="w-full md:w-1/2">
             <h2 className="text-4xl font-bold">About Us</h2>
@@ -68,7 +71,7 @@ export default function AboutUs() {
       </section>
 
       <section className="bg-gray-100 py-16 ">
-        <div className="container mx-auto px-8">
+        <div className="container mx-auto px-4">
           <div className="px-6 md:px-16">
             <h2 className="text-4xl font-bold text-[#0e2342]">Our Team</h2>
           </div>
