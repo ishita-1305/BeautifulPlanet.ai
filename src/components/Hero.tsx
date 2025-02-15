@@ -26,7 +26,7 @@ const slides = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [direction, setDirection] = useState<number>(1); // Controls slide direction
+  const [direction, setDirection] = useState<number>(1);
 
   const prevSlide = (): void => {
     setDirection(-1);
@@ -44,7 +44,6 @@ export default function Hero() {
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen text-center px-6 overflow-hidden">
-      {/* Image Slider with Animation */}
       <div className="absolute top-0 left-0 w-full h-full">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -62,11 +61,10 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Text Content Animation */}
       <div className="relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentIndex} // Ensures re-render when index changes
+            key={currentIndex}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -87,7 +85,17 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Arrows */}
+      <div className="absolute bottom-5 flex space-x-3">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentIndex === index ? "bg-white scale-125" : "bg-gray-400"
+            }`}
+          />
+        ))}
+      </div>
+
       <div
         className="absolute top-1/2 left-5 text-3xl cursor-pointer text-white z-10"
         onClick={prevSlide}
