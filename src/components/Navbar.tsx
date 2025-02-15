@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function Navbar() {
   return (
@@ -15,11 +16,15 @@ export default function Navbar() {
         <Link href="/about">
           <span className="hover:text-green-600 cursor-pointer">About us</span>
         </Link>
-        <Link href="#">
-          <span className="hover:text-green-600 cursor-pointer">
-            Sustainability Services
-          </span>
-        </Link>
+        <ScrollLink
+          to="services"
+          smooth={true}
+          duration={700}
+          className="hover:text-green-600 cursor-pointer"
+        >
+          Sustainability Services
+        </ScrollLink>
+
         {/* <Link href="#">
           <span className="hover:text-green-600 cursor-pointer">
             Our Projects

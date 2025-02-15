@@ -49,10 +49,15 @@ export default function AboutUs() {
           <div className="w-full md:w-1/2">
             <h2 className="text-4xl font-bold">About Us</h2>
             <p className="mt-4 text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              illo quas iste eligendi odit aperiam corporis voluptate cupiditate
-              ducimus rerum dignissimos ullam necessitatibus exercitationem
-              voluptatibus dolore.
+              At Beautiful Planet, we believe that every action counts in
+              building a sustainable future. Founded on the principles of
+              environmental stewardship, innovation, and transparency, our
+              company is dedicated to transforming the way organizations and
+              communities address climate change. We specialize in a
+              comprehensive suite of services—including carbon footprint, carbon
+              emission analysis, and carbon neutrality strategies—that empower
+              businesses to understand, manage, and reduce their environmental
+              impact.
             </p>
             <button className="mt-6 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold">
               Learn More

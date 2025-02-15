@@ -39,9 +39,9 @@ export default function Services() {
   } | null>(null);
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-20 bg-gray-100">
       <div className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="text-4xl font-bold text-center mb-10 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-10 text-[#0e2342] ">
           Our Services
         </h2>
         <div className="grid md:grid-cols-3 gap-8">

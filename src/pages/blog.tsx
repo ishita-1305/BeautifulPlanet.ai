@@ -13,7 +13,7 @@ function page() {
         <InnerNavbar />
         {/* Blog Section */}
         <div className="container mx-auto py-16 px-6">
-          <h1 className="text-5xl font-bold text-center text-gray-800 mb-4 -mt-4">
+          <h1 className="text-4xl font-bold text-center text-gray-800 mb-4 -mt-4">
             Our Latest Blogs
           </h1>
           <CardHoverBlog />
