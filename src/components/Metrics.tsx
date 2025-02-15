@@ -22,26 +22,26 @@ const KeyMetricsImpact: React.FC = () => {
     {
       title: "Key Metrics",
       description:
-        "Our success will be measured by the amount of carbon saved, the energy efficiency improvements we achieve, and the number of companies we partner with to integrate sustainable AI solutions. ",
+        "Our success will be measured by the amount of carbon saved, the energy efficiency improvements we achieve, and the number of companies we partner with to integrate sustainable AI solutions.",
     },
   ];
 
   return (
-    <div className="relative bg-gray-100 py-16 px-16">
+    <div className="relative bg-gray-100 py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto text-center px-4">
-        <h2 className="text-4xl font-bold text-[#0e2342] mb-8 mt-8 mr-5">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#0e2342] mb-6 sm:mb-8">
           Our Vision
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="flex flex-col items-center rounded-lg shadow-lg p-4 bg-white"
+              className="flex flex-col items-center rounded-lg shadow-lg p-6 bg-white w-full"
             >
-              <div className="text-3xl font-bold text-[#0e2342]">
+              <div className="text-2xl sm:text-3xl font-bold text-[#0e2342] text-center">
                 {metric.title}
               </div>
-              <div className="text-lg text-gray-700 mt-4 text-justify leading-relaxed max-w-xl">
+              <div className="text-md sm:text-lg text-gray-700 mt-3 sm:mt-4 text-justify leading-relaxed max-w-md">
                 {metric.description}
               </div>
             </div>
