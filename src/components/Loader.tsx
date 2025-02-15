@@ -10,7 +10,7 @@ const Loader = () => {
         height={100}
         className="animate-spin"
       />
-      <h4 className=" font-bold">Welcome to Beautiful Planet.AI</h4>
+      <h4 className=" font-bold text-white">Welcome to Beautiful Planet.AI</h4>
     </div>
   );
 };
