@@ -43,7 +43,8 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen text-center px-6 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center h-screen text-center px-4 sm:px-6 overflow-hidden">
+      {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-full">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -61,7 +62,8 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      <div className="relative z-10">
+      {/* Content */}
+      <div className="relative z-10 px-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -71,39 +73,41 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="text-white"
           >
-            <h1 className="text-5xl font-bold drop-shadow-2xl">
+            <h1 className="text-3xl sm:text-5xl font-bold drop-shadow-2xl">
               {slides[currentIndex].title}
             </h1>
-            <p className="mt-4 text-lg drop-shadow-2xl">
+            <p className="mt-2 sm:mt-4 text-sm sm:text-lg drop-shadow-2xl">
               {slides[currentIndex].description}
             </p>
 
-            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold">
+            <button className="mt-4 sm:mt-6 bg-green-500 hover:bg-green-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full text-sm sm:text-lg font-semibold">
               GET STARTED
             </button>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-5 flex space-x-3">
+      {/* Dots Indicator */}
+      <div className="absolute bottom-5 flex space-x-2 sm:space-x-3">
         {slides.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               currentIndex === index ? "bg-white scale-125" : "bg-gray-400"
             }`}
           />
         ))}
       </div>
 
+      {/* Navigation Arrows */}
       <div
-        className="absolute top-1/2 left-5 text-3xl cursor-pointer text-white z-10"
+        className="absolute top-1/2 left-3 sm:left-5 text-2xl sm:text-3xl cursor-pointer text-white z-10"
         onClick={prevSlide}
       >
         ❮
       </div>
       <div
-        className="absolute top-1/2 right-5 text-3xl cursor-pointer text-white z-10"
+        className="absolute top-1/2 right-3 sm:right-5 text-2xl sm:text-3xl cursor-pointer text-white z-10"
         onClick={nextSlide}
       >
         ❯
