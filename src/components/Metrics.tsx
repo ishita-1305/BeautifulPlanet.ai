@@ -1,28 +1,34 @@
 "use client";
-
-import React from "react";
+import React, { useState } from "react";
+import { FaLeaf, FaBalanceScale, FaChartLine, FaGlobe } from "react-icons/fa";
 
 const KeyMetricsImpact: React.FC = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const metrics = [
     {
       title: "Our Impact",
       description:
         "Our focus is on creating measurable reductions in carbon emissions by integrating AI-driven solutions that optimize energy use, streamline processes, and promote sustainable practices across industries.",
+      icon: <FaLeaf className="text-4xl text-green-600" />,
     },
     {
       title: "Neutrality",
       description:
         "By 2030, we are committed to achieving net-zero emissions across all of our operations and projects. This goal will be supported by advanced tracking, carbon offset programs, and energy-efficient technologies.",
+      icon: <FaBalanceScale className="text-4xl text-blue-600" />,
     },
     {
       title: "Growth",
       description:
         "We will drive long-term, sustainable growth by developing cutting-edge AI tools to optimize resource management, reduce waste, and empower organizations to make data-driven decisions for a greener future.",
+      icon: <FaChartLine className="text-4xl text-yellow-600" />,
     },
     {
       title: "Key Metrics",
       description:
         "Our success will be measured by the amount of carbon saved, the energy efficiency improvements we achieve, and the number of companies we partner with to integrate sustainable AI solutions.",
+      icon: <FaGlobe className="text-4xl text-purple-600" />,
     },
   ];
 
@@ -36,12 +42,30 @@ const KeyMetricsImpact: React.FC = () => {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="flex flex-col items-center rounded-lg shadow-lg p-6 bg-white w-full"
+              className={`flex flex-col items-center rounded-lg shadow-lg p-6 bg-white transition-all duration-1000 hover:bg-white ${
+                hoveredIndex === index
+                  ? "opacity-100 max-h-[400px] overflow-hidden"
+                  : "opacity-100 max-h-[150px]"
+              }`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-[#0e2342] text-center">
+              {/* Icon */}
+              <div className="mb-4">{metric.icon}</div>
+
+              {/* Title */}
+              <div className="text-xl text-[#0e2342] font-semibold">
                 {metric.title}
               </div>
-              <div className="text-md sm:text-lg text-gray-700 mt-3 sm:mt-4 text-justify leading-relaxed max-w-md">
+
+              {/* Description (Only Shown for Hovered Item) */}
+              <div
+                className={`text-md text-gray-700 mt-3 text-center transition-all duration-1000 ease-in-out overflow-hidden ${
+                  hoveredIndex === index
+                    ? "opacity-100 max-h-[400px] mt-4 overflow-hidden"
+                    : "opacity-0 max-h-0"
+                }`}
+              >
                 {metric.description}
               </div>
             </div>
