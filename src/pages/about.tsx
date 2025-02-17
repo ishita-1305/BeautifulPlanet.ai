@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import Image from "next/image";
 
 const teamMembers = [
@@ -30,10 +29,12 @@ export default function AboutUs() {
     <div>
       <Navbar />
       {/* Banner */}
-      <header className="relative bg-[url('/images/background1.jpeg')] bg-cover bg-center h-[100vh] flex items-center justify-center text-white ">
-        <div className="bg-black bg-opacity-50 p-10 rounded-lg">
-          <h1 className="text-5xl font-bold">Welcome to Beautiful Planet.AI</h1>
-          <p className="mt-4 text-lg">
+      <header className="relative bg-[url('/images/background1.jpeg')] bg-cover bg-center h-screen flex items-center justify-center text-white">
+        <div className="bg-black bg-opacity-50 p-6 sm:p-10 rounded-lg text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold">
+            Welcome to Beautiful Planet.AI
+          </h1>
+          <p className="mt-4 text-base sm:text-lg">
             Leading the way in sustainable and AI-driven innovation.
           </p>
         </div>
@@ -42,13 +43,13 @@ export default function AboutUs() {
       {/* About Us Section */}
       <section
         id="about"
-        className="py-20 px-4 md:px-16 bg-[#0e2342] text-white"
+        className="py-16 px-4 md:px-8 bg-[#0e2342] text-white"
       >
-        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between space-x-12">
+        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Text Content */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-4xl font-bold">About Us</h2>
-            <p className="mt-4 text-lg">
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold">About Us</h2>
+            <p className="mt-4 text-base sm:text-lg leading-relaxed">
               At Beautiful Planet, we believe that every action counts in
               building a sustainable future. Founded on the principles of
               environmental stewardship, innovation, and transparency, our
@@ -59,30 +60,30 @@ export default function AboutUs() {
               businesses to understand, manage, and reduce their environmental
               impact.
             </p>
-            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold">
+            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-full text-base sm:text-lg font-semibold">
               Learn More
             </button>
           </div>
 
           {/* Image */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 flex justify-center">
             <img
               src="/images/about.jpeg"
               alt="About Us"
-              className="w-half h-auto rounded-xl shadow-2xl transform transition-all duration-300 hover:scale-105"
+              className="w-full max-w-xs sm:max-w-md h-auto rounded-xl shadow-2xl transform transition-all duration-300 hover:scale-105"
             />
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-100 py-16 ">
-        <div className="container mx-auto px-4">
-          <div className="px-6 md:px-16">
-            <h2 className="text-4xl font-bold text-[#0e2342]">Our Team</h2>
-          </div>
-
+      {/* Team Section */}
+      <section className="bg-gray-100 py-16 px-4">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0e2342]">
+            Our Team
+          </h2>
           {/* Team Grid */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
